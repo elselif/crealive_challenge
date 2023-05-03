@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace App\Http\Middleware;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Http\Request;
 
-class Admin extends Authenticatable
+class Admin extends Middleware
 {
-    use HasFactory;
+   
+    protected function redirectTo(Request $request): ?string
+    {
+        return route('admin.login');
+    }
 }
