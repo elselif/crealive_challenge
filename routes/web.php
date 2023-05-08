@@ -46,3 +46,4 @@ Route::get('/admin/edit-profile', [AdminProfileController::class, 'index'])->nam
 Route::post('/admin/edit-profile-submit', [AdminProfileController::class, 'profile_submit'])->name('admin_profile_submit');
 
 Route::get('/admin/home-advertisement', [AdmnAdvertisementController::class, 'home_ad_show'])->name('admin_home_ad_show')->middleware('admin:admin');
+Route::post('/admin/home-advertisement-update', [AdmnAdvertisementController::class, 'home_ad_update'])->name('admin_home_ad_update')->middleware('admin:admin');

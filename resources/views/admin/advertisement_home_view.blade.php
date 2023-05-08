@@ -6,7 +6,8 @@
 
 
     <div class="section-body">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{{route('admin_home_ad_update')}}" method="post" enctype="multipart/form-data">
+          @csrf
 
             <div class="row">
                 <div class="col-6">
@@ -75,7 +76,7 @@
 
                             <div class="form-group mb-3">
                                 <label>Status</label>
-                                <select name="above_search_ad_status" class="form-control">
+                                <select name="above_footer_ad_status" class="form-control">
                                     <option value="Show" @if ($home_ad_data->above_footer_ad_status == 'Show') selected @endif>Show</option>
                                     <option value="Hide" @if ($home_ad_data->above_footer_ad_status == 'Hide') selected @endif>Hide</option>
                                 </select>
