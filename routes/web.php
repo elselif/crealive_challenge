@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdmnAdvertisementController;
+use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\AboutController;
 
@@ -47,3 +48,14 @@ Route::post('/admin/edit-profile-submit', [AdminProfileController::class, 'profi
 
 Route::get('/admin/home-advertisement', [AdmnAdvertisementController::class, 'home_ad_show'])->name('admin_home_ad_show')->middleware('admin:admin');
 Route::post('/admin/home-advertisement-update', [AdmnAdvertisementController::class, 'home_ad_update'])->name('admin_home_ad_update')->middleware('admin:admin');
+
+Route::get('/admin/category/create', [AdminCategoryController::class, 'create'])->name('admin_category_create')->middleware('admin:admin');
+Route::get('/admin/category/show', [AdminCategoryController::class, 'show'])->name('admin_category_show')->middleware('admin:admin');
+
+Route::post('/admin/category/store', [AdminCategoryController::class, 'store'])->name('admin_category_store');
+
+Route::get('/admin/category/edit/{id}', [AdminCategoryController::class, 'edit'])->name('admin_category_edit')->middleware('admin:admin');
+
+Route::post('/admin/category/update/{id}', [AdminCategoryController::class, 'update'])->name('admin_category_update');
+
+Route::get('/admin/category/delete/{id}', [AdminCategoryController::class, 'delete'])->name('admin_category_delete')->middleware('admin:admin');
