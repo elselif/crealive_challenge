@@ -67,4 +67,75 @@ class AdminPostController extends Controller
     
           return redirect()->route('admin_post_show')->with('success','Data is added successfully');
     }
+    public function edit($id)
+    {
+      $sub_categories = SubCategory::with('rCategory')->get();
+      $existing_tags = Tag::where('post_id',$id)->get();
+      $post_single = Post::where('id',$id)->first();
+
+      return view('admin.post_edit',compact('post_single','sub_categories','existing_tags'));
+
+    }
+
+    public function update(Request $request , $id)
+    {
+      $request->validate([
+        'post_title' => 'required',
+        'post_detail' => 'required',
+      ]);
+
+
+      $post = Post::where('id',$id)->first();
+
+
+      if($request->hasFile('post_photo'))
+      {
+        $request->validate([
+            'post_photo' => 'image|mimes:jpg,jpeg,png,gif'
+        ]);
+
+        unlink(public_path('uploads/'.$post));
+
+        $now = time();
+        $ext= $request->file('post_photo')->extension();
+        $final_name = 'post_photo_'.$now.'.'.$ext;
+        $request->file('post_photo')->move(public_path('uploads/'),$final_name);
+
+
+        $post->post_photo = $final_name;
+
+      }
+
+
+
+
+
+          $post->sub_category_id = $request->sub_category_id;
+          $post->post_title = $request->post_title;
+          $post->post_detail = $request->post_detail;
+          $post->visitors = 1;
+          $post->author_id = 0;
+          $post->admin_id = Auth::guard('admin')->user()->id;
+          $post->is_share = $request->is_share;
+          $post->is_comment = $request->is_comment;
+          $post->update();
+
+
+
+     
+
+      return redirect()->route('admin_post_show')->with('success','Category updated successfully');
+
+    }
+
+    public function delete($id)
+    {
+      $post = Post::where('id',$id)->first();
+      unlink(public_path('uploads/'.$post->post_photo));
+      $post->delete();
+
+        
+
+      return redirect()->route('admin_post_show')->with('success','Post deleted successfully');
+    }
 }

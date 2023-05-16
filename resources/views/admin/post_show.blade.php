@@ -26,6 +26,7 @@
                                                                                           <th>Post Title</th>
                                                                                           <th>Category</th>
                                                                                           <th>Sub Category</th>
+                                                                                          <td>Tags</td>
                                                                                           <th>Author</th>
                                                                                           <th>Admin</th>
                                                                                           <th>Action</th>
@@ -41,7 +42,9 @@
                                                                                           <td>{{$row -> post_title}}</td>
                                                                                           <td>{{$row->rSubCategory->sub_category_name}}</td>
                                                                                           <td>{{$row->rSubCategory -> rCategory-> category_name}}</td>
-                                                                                          <td></td>
+                                                                                          <td>
+                                                                                                   
+                                                                                          </td>
                                                                                           <td>
                                                                                                     @if ($row->admin_id != 0)
                                                                                                              {{ Auth::guard('admin')->user()->name}}
