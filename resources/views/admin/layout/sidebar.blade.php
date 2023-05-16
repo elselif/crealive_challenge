@@ -25,7 +25,8 @@
                     <ul class="dropdown-menu">
                         <li class=""><a class="nav-link" href="{{route('admin_category_show')}}"><i class="fas fa-angle-right"></i> Categories</a></li>
                         <li class=""><a class="nav-link" href="{{route('admin_sub_category_show')}}"><i class="fas fa-angle-right"></i> SubCategories</a></li>
-                        <li class=""><a class="nav-link" href=""><i class="fas fa-angle-right"></i> Posts</a></li>
+                        <li class=""><a class="nav-link" href="{{route('admin_post_show')}}"><i class="fas fa-angle-right"></i> Posts</a></li>
+                        
                     </ul>
                 </li>
 
