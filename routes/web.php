@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdmnAdvertisementController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminSubCategoryController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\PostController;
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Admin\AdminPostController;
 
@@ -32,6 +33,7 @@ Route::get('/', function () {
 
 Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/about',[AboutController::class, 'index'])->name('about');
+Route::get('/news-detail/{id}',[PostController::class, 'detail'])->name('news_detail');
 
 
 
