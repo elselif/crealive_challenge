@@ -26,74 +26,110 @@
           <div class="container">
               <div class="row g-2">
                   <div class="col-lg-8 col-md-12 left">
+
+                    @php
+                        $i = 0;
+                    @endphp
+                    @foreach ($post_data as  $item)
+                    @php
+                        $i++;
+                    @endphp
+                    @if ($i>1)
+                    @break
+                    
+                    @endif
+                        
+                    
+            
                       <div class="inner">
                           <div class="photo">
                               <div class="bg"></div>
-                              <img src="uploads/n1.jpg" alt="">
+                              <img src="{{asset('uploads/'.$item-> post_photo)}}" alt="">
                               <div class="text">
                                   <div class="text-inner">
                                       <div class="category">
-                                          <span class="badge bg-success badge-sm">Politics</span>
+                                          <span class="badge bg-success badge-sm">{{$item->rSubCategory->sub_category_name}}</span>
                                       </div>
-                                      <h2><a href="">Top five ranked teams in world lined up to take part in competition</a></h2>
+                                      <h2><a href="{{route('news_detail',$item->id)}}">{{$item -> post_title}}</a></h2>
                                       <div class="date-user">
                                           <div class="user">
-                                              <a href="">Paul David</a>
+                                            @if ($item->author_id == 0)
+                                                    @php
+                                                       $user_data = App\Models\Admin::where('id',$item->admin_id)->first();
+                                                       
+                                                    @endphp
+                                                    @else
+                                            @endif
+                                              <a href="">{{$user_data ->name}}</a>
                                           </div>
                                           <div class="date">
-                                              <a href="">10 Jan, 2022</a>
+
+                                            @php
+                                                $date = date_create($item->created_at);
+                                                $date = date_format($date,"d M, Y");
+                                            @endphp
+
+
+                                              <a href="">
+                                                {{$date}}
+                                              </a>
                                           </div>
                                       </div>
                                   </div>
                               </div>
                           </div>
                       </div>
+                      
+                      @endforeach
                   </div>
                   <div class="col-lg-4 col-md-12">
+                    @php
+                        $i = 0;
+                    @endphp
+                    @foreach ($post_data as  $item)
+                    @php
+                        $i++;
+                    @endphp
+                    @if ($i== 1) @continue  @endif
+                    @if ($i>3)
+                    @break
+                    
+                    @endif
                       <div class="inner inner-right">
                           <div class="photo">
                               <div class="bg"></div>
-                              <img src="uploads/n2.jpg" alt="">
+                              <img src="{{asset('uploads/'.$item-> post_photo)}}" alt="">
                               <div class="text">
                                   <div class="text-inner">
                                       <div class="category">
-                                          <span class="badge bg-success badge-sm">Politics</span>
+                                          <span class="badge bg-success badge-sm">{{$item->rSubCategory->sub_category_name}}</span>
                                       </div>
-                                      <h2><a href="">Top five ranked teams in world lined up to take part in competition</a></h2>
+                                      <h2><a href="{{route('news_detail',$item->id)}}">{{$item -> post_title}}</a></h2>
                                       <div class="date-user">
-                                          <div class="user">
-                                              <a href="">Paul David</a>
+                                        <div class="user">
+                                            @if ($item->author_id == 0)
+                                                    @php
+                                                       $user_data = App\Models\Admin::where('id',$item->admin_id)->first();
+                                                       
+                                                    @endphp
+                                                    @else
+                                            @endif
+                                              <a href="">{{$user_data ->name}}</a>
                                           </div>
                                           <div class="date">
-                                              <a href="">10 Jan, 2022</a>
+
+                                            @php
+                                            $date = date_create($item->created_at);
+                                            $date = date_format($date,"d M, Y");
+                                        @endphp
+                                              <a href="">{{$date}}</a>
                                           </div>
                                       </div>
                                   </div>
                               </div>
                           </div>
                       </div>
-                      <div class="inner inner-right">
-                          <div class="photo">
-                              <div class="bg"></div>
-                              <img src="uploads/n3.jpg" alt="">
-                              <div class="text">
-                                  <div class="text-inner">
-                                      <div class="category">
-                                          <span class="badge bg-success badge-sm">Politics</span>
-                                      </div>
-                                      <h2><a href="">Top five ranked teams in world lined up to take part in competition</a></h2>
-                                      <div class="date-user">
-                                          <div class="user">
-                                              <a href="">Paul David</a>
-                                          </div>
-                                          <div class="date">
-                                              <a href="">10 Jan, 2022</a>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+                      @endforeach
                   </div>
               </div>
           </div>
