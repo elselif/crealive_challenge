@@ -25,6 +25,7 @@
                                                                                           <th>Sub Category Name</th>
                                                                                           <th>Category Name</th>
                                                                                           <th>Showe On Menu ? </th>
+                                                                                          <th>Showe On Home ? </th>
                                                                                           <th>Order</th>
                                                                                           <th>Action</th>
                                                                                 </tr>
@@ -37,6 +38,7 @@
                                                                                           <td>{{$row -> sub_category_name}}</td>
                                                                                           <td>{{$row -> rCategory -> category_name}}</td>
                                                                                           <td>{{$row-> show_on_menu}}</td>
+                                                                                          <td>{{$row-> show_on_home}}</td>
                                                                                           <td>{{$row-> sub_category_order}}</td>
                                                                                           <td class="pt_10 pb_10">
                                                                                                     <a href="{{route('admin_sub_category_edit',$row->id)}}" class="btn btn-primary">Edit</a>

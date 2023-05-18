@@ -36,6 +36,14 @@
 
                                                                       </div>
                                                                       <div class="form-group mb-3">
+                                                                                          <label>Show on menu?</label>
+                                                                                          <select name="show_on_home" class="form-control">
+                                                                                                    <option value="0">Hide</option>
+                                                                                                    <option value="1">Show</option>
+                                                                                          </select>
+
+                                                                      </div>
+                                                                      <div class="form-group mb-3">
                                                                                 <label>Sub Category Order</label>
                                                                                 <input type="text" class="form-control" name="sub_category_order" value="">
 
