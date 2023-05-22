@@ -191,6 +191,10 @@
 
                         @foreach ($sub_category_data as $item)
                        
+                            @if(count($item->rPost)==0)
+                                @continue
+                            @endif
+
                             <div class="news-total-item">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-12">
