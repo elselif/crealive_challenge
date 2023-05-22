@@ -14,5 +14,8 @@ class SubCategory extends Model
       return $this->belongsTo(Category::class,'category_id');
     }
 
-    
+    public function rPost()
+    {
+      return $this->hasMany(Post::class)->orderBy('id','desc');
+    }
 }
