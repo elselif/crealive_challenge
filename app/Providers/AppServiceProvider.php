@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,5 +22,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useBootstrap();
+
+
+        $categories = Category::where('show_on_menu','Show')->orderBy('category_order','asc')->get();
+
+        view()->share('global_categories', $categories);
+
     }
 }
