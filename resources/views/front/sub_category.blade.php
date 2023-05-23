@@ -38,7 +38,6 @@
                                             <h3><a href="{{route('news_detail',$item->id)}}">{{$item->post_title}}</a></h3>
                                             <div class="date-user">
                                                
-                                                
                                             </div>
                                         </div>
                                     </div>

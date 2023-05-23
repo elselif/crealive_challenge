@@ -9,7 +9,9 @@
                       <h2>{{$post_detail -> post_title}}</h2>
                       <nav class="breadcrumb-container">
                           <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                              <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                              <li class="breadcrumb-item"><a href="{{route('category', 
+                              $post_detail->sub_category_id) }}"> {{$post_detail -> rSubCategory-> sub_category_name}}</a></li>
                               <li class="breadcrumb-item active" aria-current="page">{{$post_detail -> post_title}}</li>
                           </ol>
                       </nav>
@@ -33,7 +35,8 @@
                                       </div>
                                       <div class="item">
                                           <b><i class="fas fa-edit"></i></b>
-                                          <a href="">{{$post_detail->rSubCategory-> sub_category_name}}</a>
+                                          <a href="{{route('category', 
+                                          $post_detail->sub_category_id) }}">{{$post_detail->rSubCategory-> sub_category_name}}</a>
                                       </div>
                                       <div class="item">
                                           <b><i class="fas fa-clock"></i></b>
