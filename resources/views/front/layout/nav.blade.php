@@ -18,9 +18,12 @@
                                     {{$item -> category_name}}
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Football</a></li>
-                                        <li><a class="dropdown-item" href="#">Cricket</a></li>
-                                        <li><a class="dropdown-item" href="#">Baseball</a></li>
+
+                                        @foreach ($item->rSubCategory as $item2 )
+                                        <li><a class="dropdown-item" href="#">{{$item2->sub_category_name}}</a></li>
+                                        @endforeach
+
+                                        
                                     </ul>
                                 </li>
                                   @endforeach

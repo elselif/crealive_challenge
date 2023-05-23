@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
 
-        $categories = Category::where('show_on_menu','Show')->orderBy('category_order','asc')->get();
+        $categories = Category::with('rSubCategory')->where('show_on_menu','Show')->orderBy('category_order','asc')->get();
 
         view()->share('global_categories', $categories);
 
