@@ -29,6 +29,14 @@
                         
                     </ul>
                 </li>
+                  <li class="nav-item dropdown ">
+                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Page</span></a>
+                    <ul class="dropdown-menu">
+                        <li class=""><a class="nav-link" href="{{route('admin_page_about')}}"><i class="fas fa-angle-right"></i> About</a></li>
+                       
+                        
+                    </ul>
+                </li>
 
                   {{-- <li class="nav-item dropdown active">
                       <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Dropdown Items</span></a>

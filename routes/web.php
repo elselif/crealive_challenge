@@ -12,6 +12,7 @@ use App\Http\Controllers\Front\SubCategoryController;
 use App\Http\Controllers\Front\PostController;
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Admin\AdminPostController;
+use App\Http\Controllers\Admin\AdminPageController;
 
 
 
@@ -89,3 +90,9 @@ Route::post('/admin/post/update/{id}', [AdminPostController::class, 'update'])->
 
 Route::get('/admin/post/delete/{id}', [AdminPostController::class, 'delete'])->name('admin_post_delete')->middleware('admin:admin');
 
+
+
+
+Route::get('/admin/page/about', [AdminPageController::class, 'about'])->name('admin_page_about')->middleware('admin:admin');
+
+Route::post('/admin/page/about/update', [AdminPageController::class, 'about_update'])->name('admin_page_about_update');
