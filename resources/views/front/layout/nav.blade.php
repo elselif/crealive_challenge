@@ -14,13 +14,13 @@
 
                                   @foreach ($global_categories as $item )
                                   <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void;" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{$item -> category_name}}
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                                         @foreach ($item->rSubCategory as $item2 )
-                                        <li><a class="dropdown-item" href="#">{{$item2->sub_category_name}}</a></li>
+                                        <li><a class="dropdown-item" href="{{route('category',$item2->id)}}">{{$item2->sub_category_name}}</a></li>
                                         @endforeach
 
                                         
