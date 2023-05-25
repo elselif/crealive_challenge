@@ -33,4 +33,26 @@ class HomeController extends Controller
         return response()->json(['sub_category_data'=>$response]);
 
     }
+
+
+    public function search(Request $request)
+    {
+      $post_data=Post::with('rSubCategory')->orderBy('id','desc');
+
+        if($request->text_item!='')
+        {
+            $post_data = $post_data ->where('post_title','like','%' .$request->text_item.'%');
+        }
+
+        if($request->sub_category!='')
+        {
+            $post_data = $post_data ->where('sub_category_id',$request->sub_category);
+        }
+
+        $post_data = $post_data->paginate(3);
+
+        return view('front.search_result',compact('post_data'));
+
+    }
+
 }

@@ -148,10 +148,13 @@
       <div class="search-section">
           <div class="container">
               <div class="inner">
+                <form action="{{route('search_result')}}" method="post">
+                    @csrf
                   <div class="row">
+                    
                       <div class="col-md-3">
                           <div class="form-group">
-                              <input type="text" name="" class="form-control" placeholder="Title or Description">
+                              <input type="text" name="text_item" class="form-control" placeholder="Title or Description">
                           </div>
                       </div>
                       <div class="col-md-3">
@@ -179,7 +182,9 @@
                       <div class="col-md-3">
                           <button type="submit" class="btn btn-primary">Search</button>
                       </div>
+                    
                   </div>
+                </form>
               </div>
           </div>
       </div>
