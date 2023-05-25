@@ -156,21 +156,23 @@
                       </div>
                       <div class="col-md-3">
                           <div class="form-group">
-                              <select name="" class="form-select">
+                              <select name="category" id="category"  class="form-select">
                                   <option value="">Select Category</option>
-                                  <option value="">Sports</option>
-                                  <option value="">National</option>
-                                  <option value="">Lifestyle</option>
+                                  @foreach ($category_data as $item )
+                                  <option value="{{$item->id}}">{{$item->category_name}}</option>
+                                  @endforeach
+                                  
+                                 
                               </select>
                           </div>
                       </div>
                       <div class="col-md-3">
                           <div class="form-group">
-                              <select name="" class="form-select">
+                              <select name="sub_category" id="sub_category" class="form-select">
                                   <option value="">Select SubCategory</option>
-                                  <option value="">Football</option>
-                                  <option value="">Cricket</option>
-                                  <option value="">Baseball</option>
+                                  
+                                 
+                                  
                               </select>
                           </div>
                       </div>
@@ -674,4 +676,31 @@
               </div>
           </div>
           </div>
+
+
+
+          <script>
+            (function($){
+                $(document).ready(function(){
+                    $("#category").on("change",function(){
+                       var categoryId = $("#category").val();
+                       if(categoryId){
+                            $.ajax({
+                                type: "get",
+                                url: "{{url('/subcategory-by-category')}}"+"/" + categoryId,
+                                success: function(response)
+                                {
+                                $("#sub_category").html(response.sub_category_data);
+                                },
+                                error:function(err)
+                                {
+
+                                }
+                            })
+                       }
+                    })
+                });
+
+            })(jQuery);
+          </script>
 @endsection
