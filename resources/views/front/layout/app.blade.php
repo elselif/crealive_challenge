@@ -42,8 +42,12 @@
                         <ul class="right">
                             <li class="menu"><a href="faq.html">FAQ</a></li>
                             <li class="menu"><a href="{{route('about')}}">About</a></li>
-                            <li class="menu"><a href="contact.html">Contact</a></li>
-                            <li class="menu"><a href="login.html">Login</a></li>
+                            <li class="menu"><a href="{{route('contact')}}">Contact</a></li>
+                            <li class="menu">
+                                <a href="{{route('login')}}">
+                                    Login
+                                </a>
+                            </li>
                             <li>
                                 <div class="language-switch">
                                     <select name="">

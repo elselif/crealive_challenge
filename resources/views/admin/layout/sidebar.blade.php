@@ -33,6 +33,8 @@
                     <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Page</span></a>
                     <ul class="dropdown-menu">
                         <li class=""><a class="nav-link" href="{{route('admin_page_about')}}"><i class="fas fa-angle-right"></i> About</a></li>
+                        <li class=""><a class="nav-link" href="{{route('admin_page_login')}}"><i class="fas fa-angle-right"></i> Login</a></li>
+                        <li class=""><a class="nav-link" href="{{route('admin_page_contact')}}"><i class="fas fa-angle-right"></i> Contact</a></li>
                        
                         
                     </ul>

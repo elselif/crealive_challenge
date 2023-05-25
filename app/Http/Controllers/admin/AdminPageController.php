@@ -33,4 +33,52 @@ class AdminPageController extends Controller
 
     }
 
+
+    public function login()
+    {
+        $page_data = Page::where('id',1)->first();
+        return view('admin.page_login',compact('page_data'));
+    }
+
+    public function login_update(Request $request)
+    {  
+        $request->validate([
+            'login_title' => 'required'
+        ]);
+
+
+        $page = Page::where('id',1) -> first();
+        $page -> login_title = $request ->login_title;
+        $page -> login_status = $request ->login_status;
+        $page->update();
+
+        return redirect()-> route('admin_page_login')->with('success','data is updated success');
+        
+
+    }
+    public function contact()
+    {
+        $page_data = Page::where('id',1)->first();
+        return view('admin.page_contact',compact('page_data'));
+    }
+
+    public function contact_update(Request $request)
+    {  
+        $request->validate([
+            'contact_title' => 'required'
+        ]);
+
+
+        $page = Page::where('id',1) -> first();
+        $page -> contact_title = $request ->contact_title;
+        $page -> contact_detail = $request ->contact_detail;
+        $page -> contact_map = $request ->contact_map;
+        $page -> contact_status = $request ->contact_status;
+        $page->update();
+
+        return redirect()-> route('admin_page_contact')->with('success','data is updated success');
+        
+
+    }
+
 }

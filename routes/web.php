@@ -8,8 +8,10 @@ use App\Http\Controllers\Admin\AdmnAdvertisementController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminSubCategoryController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\SubCategoryController;
 use App\Http\Controllers\Front\PostController;
+use App\Http\Controllers\Front\LoginController;
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminPageController;
@@ -35,8 +37,11 @@ Route::get('/', function () {
 
 Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/about',[AboutController::class, 'index'])->name('about');
+Route::get('/contact',[ContactController::class, 'index'])->name('contact');
+Route::post('/contact/send-email',[ContactController::class, 'send_email'])->name('contact_form_submit');
 Route::get('/news-detail/{id}',[PostController::class, 'detail'])->name('news_detail');
 Route::get('/category/{id}',[SubCategoryController::class, 'index'])->name('category');
+Route::get('/login',[LoginController::class , 'index'])->name('login');
 
 
 
@@ -96,3 +101,11 @@ Route::get('/admin/post/delete/{id}', [AdminPostController::class, 'delete'])->n
 Route::get('/admin/page/about', [AdminPageController::class, 'about'])->name('admin_page_about')->middleware('admin:admin');
 
 Route::post('/admin/page/about/update', [AdminPageController::class, 'about_update'])->name('admin_page_about_update');
+
+Route::get('/admin/page/login', [AdminPageController::class, 'login'])->name('admin_page_login')->middleware('admin:admin');
+
+Route::post('/admin/page/login/update', [AdminPageController::class, 'login_update'])->name('admin_page_login_update');
+
+Route::get('/admin/page/contact', [AdminPageController::class, 'contact'])->name('admin_page_contact')->middleware('admin:admin');
+
+Route::post('/admin/page/contact/update', [AdminPageController::class, 'contact_update'])->name('admin_page_contact_update');

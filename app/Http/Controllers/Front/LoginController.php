@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+
+class LoginController extends Controller
 {
     public function index()
     {
-        $page_data =  Page::where('id',1)->first();
-        return view('front.layout.about' , compact('page_data'));
+        $page_data = Page::where('id',1)->first();
+
+        return view('front.login',compact('page_data'));
     }
 }
