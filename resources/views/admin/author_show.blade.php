@@ -33,7 +33,12 @@
                                                                                 <tr>
                                                                                           <td>{{$loop-> iteration}}</td>
                                                                                           <td>
+                                                                                                    @if($row->photo==NULL)
+                                                                                                    <img src="{{asset('uploads/default.png')}}" alt="" width="100px">
+
+                                                                                                    @else
                                                                                                     <img src="{{asset('uploads/'.$row->photo)}}" alt="" width="100px">
+                                                                                                    @endif
                                                                                           </td>
                                                                                           <td>{{$row -> name}}</td>
                                                                                           <td>{{$row -> email}}</td>

@@ -118,5 +118,5 @@ Route::get('/admin/author/show', [AdminAuthorController::class, 'show'])->name('
 Route::get('/admin/author/create', [AdminAuthorController::class, 'create'])->name('admin_author_create')->middleware('admin:admin');
 Route::post('/admin/author/store', [AdminAuthorController::class, 'store'])->name('admin_author_store')->middleware('admin:admin');
 Route::get('/admin/author/edit/{id}', [AdminAuthorController::class, 'edit'])->name('admin_author_edit')->middleware('admin:admin');
-Route::get('/admin/author/update/{id}', [AdminAuthorController::class, 'update'])->name('admin_author_update')->middleware('admin:admin');
+Route::post('/admin/author/update/{id}', [AdminAuthorController::class, 'update'])->name('admin_author_update')->middleware('admin:admin');
 Route::get('/admin/author/delete/{id}', [AdminAuthorController::class, 'delete'])->name('admin_author_delete')->middleware('admin:admin');
