@@ -44,7 +44,6 @@ Route::get('/contact',[ContactController::class, 'index'])->name('contact');
 Route::post('/contact/send-email',[ContactController::class, 'send_email'])->name('contact_form_submit');
 Route::get('/news-detail/{id}',[PostController::class, 'detail'])->name('news_detail');
 Route::get('/category/{id}',[SubCategoryController::class, 'index'])->name('category');
-Route::get('/login',[LoginController::class , 'index'])->name('login');
 
 
 
@@ -120,3 +119,8 @@ Route::post('/admin/author/store', [AdminAuthorController::class, 'store'])->nam
 Route::get('/admin/author/edit/{id}', [AdminAuthorController::class, 'edit'])->name('admin_author_edit')->middleware('admin:admin');
 Route::post('/admin/author/update/{id}', [AdminAuthorController::class, 'update'])->name('admin_author_update')->middleware('admin:admin');
 Route::get('/admin/author/delete/{id}', [AdminAuthorController::class, 'delete'])->name('admin_author_delete')->middleware('admin:admin');
+
+
+Route::get('/login',[LoginController::class , 'index'])->name('login');
+Route::post('/login-submit', [LoginController::class, 'login_submit'])->name('login_submit');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

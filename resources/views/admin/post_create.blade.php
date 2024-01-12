@@ -10,7 +10,7 @@
 
 @endsection
 
-@section('main_content')
+@section('main_content') 
 
 
 <div class="section-body">

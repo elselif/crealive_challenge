@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('sub_category_name');
             $table->string('show_on_menu');
             $table->integer('sub_category_order');
-            $table->integer('category_id');
+            $table->integer('category_id'); 
             $table->timestamps();
         });
     }

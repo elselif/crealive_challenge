@@ -19,7 +19,7 @@ class AdminCategoryController extends Controller
     {
       return view('admin.category_create');
 
-    }
+    } 
 
     public function store(Request $request)
     {

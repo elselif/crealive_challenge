@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+        'author' => [
+            'driver' => 'session',
+            'provider' => 'authors',
+        ],
     ],
 
     /*
@@ -71,6 +75,10 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
+        ],
+        'authors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Author::class,
         ],
 
         // 'users' => [
@@ -107,6 +115,12 @@ return [
         ],
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'authors' => [
+            'provider' => 'authors',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,

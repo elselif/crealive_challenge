@@ -28,7 +28,7 @@ class PostController extends Controller
 
        $new_value = $post_detail ->visitors + 1;
        $post_detail ->visitors = $new_value;
-         $post_detail ->update();
+       $post_detail ->update();
        
 
        return view('front.post_detail', compact('post_detail','user_data'));

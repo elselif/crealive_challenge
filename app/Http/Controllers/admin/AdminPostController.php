@@ -23,7 +23,7 @@ class AdminPostController extends Controller
     {
 
         $subcategories = SubCategory::with('rCategory')->get();
-       
+
       return view('admin.post_create',compact('subcategories'));
     }
 
@@ -44,7 +44,7 @@ class AdminPostController extends Controller
             $request->file('post_photo')->move(public_path('uploads/'),$final_name);
 
 
-    
+
           $post = new Post;
           $post->sub_category_id = $request->sub_category_id;
           $post->post_title = $request->post_title;
@@ -64,7 +64,7 @@ class AdminPostController extends Controller
               $tag->tag_name = trim($tags_array[$i]);
                 $tag->save();
           }
-    
+
           return redirect()->route('admin_post_show')->with('success','Data is added successfully');
     }
     public function edit($id)
@@ -94,7 +94,7 @@ class AdminPostController extends Controller
             'post_photo' => 'image|mimes:jpg,jpeg,png,gif'
         ]);
 
-        unlink(public_path('uploads/'.$post));
+        unlink(public_path('uploads/'.$post->post_photo));
 
         $now = time();
         $ext= $request->file('post_photo')->extension();
@@ -105,10 +105,6 @@ class AdminPostController extends Controller
         $post->post_photo = $final_name;
 
       }
-
-
-
-
 
           $post->sub_category_id = $request->sub_category_id;
           $post->post_title = $request->post_title;
@@ -122,7 +118,7 @@ class AdminPostController extends Controller
 
 
 
-     
+
 
       return redirect()->route('admin_post_show')->with('success','Category updated successfully');
 
@@ -134,7 +130,7 @@ class AdminPostController extends Controller
       unlink(public_path('uploads/'.$post->post_photo));
       $post->delete();
 
-        
+
 
       return redirect()->route('admin_post_show')->with('success','Post deleted successfully');
     }
